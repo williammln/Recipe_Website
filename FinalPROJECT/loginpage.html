@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - African Cuisine</title>
+<script type="module" src="scripts/firebase-config.js"></script>
+<script type="module" src="scripts/auth.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+  }
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  .left-column {
+    flex: 3;
+    background: url('images/langingpage.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  .landtitle{
+    font-size: 3.5em;
+    color: #815A57;
+  }
+  .right-column {
+    flex: 2;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .logo {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto 0.5rem auto;
+  }
+  .title{
+    font-size: 48px;
+    text-align: center;
+    font-weight: 300;
+    color: #A85D3D;
+    margin: 0;
+  }
+  .login-title {
+    font-size: 32px;
+    color: #A85D3D;
+    font-weight: 500;
+    margin: 0.5rem 0;
+  }
+  .subtitle{
+    font-size: 15px;
+    color: #CC8787;
+    margin: 0.5rem 0;
+  }
+  .login-input {
+    width: 100%;
+    padding: 10px;
+    background-color:#EFDCDA;
+    margin-bottom: 1rem;
+    border: 0px solid;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  .login-input::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #999;
+    opacity: 1;
+  }
+  .login-button {
+    width: 50%;
+    padding: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #D67F60;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto 0.5rem auto;
+  }
+  .login-button:hover {
+    background-color: #603B2D;
+  }
+  .login-help, .login-register {
+    position: relative;
+  }
+
+  .login-help a, .login-register a {
+    color: #CC8787;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .login-help a::before, .login-register a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #603B2D;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+  }
+
+  .login-help a:hover, .login-register a:hover {
+    color: #603B2D;
+    transform: scale(1.05);
+  }
+  .login-help a:hover::before, .login-register a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .login-help {
+    font-size: 15px;
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+  .login-register {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left-column">
+    <div class="landtitle">STEP INTO A WORLD OF RICH FLAVORS AND TIME-HONORED TRADITIONS</div>
+  </div>
+  <div class="right-column">
+    <div class="login-container">
+      <img src="images/logo.png" alt="Logo" class="logo">
+      <h1 class="title">LOGIN</h2>
+      <h2 class="login-title">Welcome Back</h2>
+      <p class = "subtitle">Welcome back please login into your account</p>
+      <form id="login-form">
+        <input type="email" id="email" name="email" class="login-input" placeholder="Email" required>
+        <input type="password" id="password" name="password" class="login-input" placeholder="Password" required>
+        <div class="login-help">
+          <a href="#">Forgotten Password?</a>
+        </div>
+        <p id="login-error" style="color: red; display: none;"></p>
+        <button type="submit" class="login-button">Login</button>
+        <div class="login-register">
+          Don't have an Account? <a href="registration.html">Register</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

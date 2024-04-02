@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Contact Us</title>
+<style type="text/css">
+	body {
+	  background-color: #fff;
+	  margin: 0;
+	  height: 100vh;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  font-family: 'Poppins', sans-serif;
+	}
+
+	.contact-us-container h2 {
+	  font-size: 48px;
+		font-weight: 500;
+		color: #A85D3D;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.social-media-icons {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+
+	.icon-container {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 150px;
+	  height: 150px;
+	  margin: 0 30px;
+	  border-radius: 20px;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	  transition: transform 0.3s ease;
+	}
+
+	.icon-container img {
+	  width: 80%;
+	  height: auto;
+	}
+	.email { background-color: #EE5555; }
+	.instagram { background-color: #9B55EE; }
+	.platform-x { background-color: #555555; }
+	.linkedin { background-color: #5555EE; }
+	.phone { background-color: #55EE55; }
+
+	.icon-container:hover {
+	  transform: scale(1.1); /* gives a 'pop' effect on hover */
+	}
+
+	/* Add responsive design as needed */
+	@media (max-width: 600px) {
+	  .social-media-icons {
+	    flex-direction: column;
+	  }
+
+	  .icon-container {
+	    margin: 5px;
+	  }
+	}
+
+</style>
+</head>
+<body>
+  <div class="contact-us-container">
+    <h2>Contact Us</h2>
+    <div class="social-media-icons">
+      <a href="mailto:someone@example.com" class="icon-container email">
+        <img src="images/email.png" alt="Email">
+      </a>
+      <a href="https://instagram.com" class="icon-container instagram">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+      <!-- Assuming 'X' is a placeholder for another social platform -->
+      <a href="your-platform-link" class="icon-container platform-x">
+        <img src="images/twitter.png" alt="Platform X">
+      </a>
+      <a href="https://linkedin.com" class="icon-container linkedin">
+        <img src="images/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="tel:+1234567890" class="icon-container phone">
+        <img src="images/phone.png" alt="Phone">
+      </a>
+    </div>
+  </div>
+</body>
+</html>

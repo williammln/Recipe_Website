@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Navigation Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+    html, body {
+	    margin: 0;
+	    padding: 0;
+	    overflow-x: hidden;
+	}
+    .logo {
+        max-width: 150px;
+        display: block;
+        margin: 0 auto 0.5rem auto;
+    }
+	body#navigationpage {
+        font-family: 'Poppins', sans-serif;
+        background: url('images/HomePage.png') no-repeat center center; /* Centers the image */
+        background-size: cover; /* Change to 'contain' if you want to see the whole image */
+        background-attachment: fixed; /* Optional: Fixes the background image during scroll */
+    }
+
+    body#navigationpage .buttons a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 200;
+        display: block; 
+        margin: 30px 20px;             
+        position: relative;
+        transition: transform 0.2s, color 0.3s;
+    }
+    body#navigationpage .buttons a::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 60%;
+        height: 2px;
+        background-color: #603B2D;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s;
+    }
+    body#navigationpage .buttons a:hover {
+        transform: scale(1.05);
+        color: #603B2D;
+    }
+    body#navigationpage .buttons a:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    .mainlinks {
+        padding-top: 30px;
+    }
+    .active-link {
+        background-color: #A95132; /* Color of the indicator */
+        padding: 10px 10px;
+        margin: 20px -20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    .active-link:hover {
+        transform: none;
+        color: #FFFFFF;
+    }
+    .active-link:hover::before {
+        display: none;
+    }
+    .bottomlinks {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+    }
+
+    .bottomlinks a {
+        display: block;
+        margin: 10px 0;
+    }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to update the active link
+    const setActiveLink = (activePath) => {
+        const links = document.querySelectorAll('.mainlinks a, .bottomlinks a');
+        links.forEach(link => {
+            if (link.getAttribute('href') === activePath) {
+                link.classList.add('active-link');
+            } else {
+                link.classList.remove('active-link');
+            }
+        });
+    };
+
+    // Set the default active link based on the current page
+    setActiveLink('home.html'); // Assuming 'home.html' is your home page file name
+
+    // Add click event listener to all navigation links
+    const navigationLinks = document.querySelectorAll('.mainlinks a, .bottomlinks a');
+    navigationLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Update the active link on click
+            setActiveLink(this.getAttribute('href'));
+        });
+    });
+});
+</script>
+</head>
+<body id="navigationpage">
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <div class = "heading">
+    	<a href="home.html" target="content">
+    </a>
+    </div>
+    <div class="buttons">
+        <div class="mainlinks">
+            <a href="home.html" target="content" class="active-link">Home</a>
+            <a href="Recipes.html" target="content">Recipes</a>
+            <a href="upload.html" target="content">Upload Recipes</a>
+            <a href="about.html" target="content">About Us</a>
+            <a href="contact.html" target="content">Contact</a>
+            <a href="profile.html" target="content">Profile</a>
+        </div>
+        <div class="bottomlinks">
+            <a href="#" id="signOutLink">Sign Out</a>
+        </div>
+
+    </div>
+    <script type="module" src="scripts/signout.js"></script>
+</body>
+</html>

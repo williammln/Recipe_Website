@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <style type="text/css">
+    	body, html {
+		    margin: 0;
+		    padding: 0;
+		    font-family: 'Poppins', sans-serif;
+		    background-color: #f0f0f0;
+		}
+
+		.recipe-details-container {
+		    max-width: 800px;
+		    margin: 20px auto;
+		    padding: 20px;
+		    background-color: #ffffff;
+		    border-radius: 8px;
+		    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+		.recipe-details-container h1, .recipe-details-container h2 {
+		    color: #333;
+		}
+
+		#recipeImage {
+		    width: 100%;
+		    border-radius: 8px;
+		}
+
+		#recipeMeta p, #recipeNote {
+		    color: #666;
+		    line-height: 1.6;
+		}
+
+		#recipeIngredients li, #recipeInstructions li {
+		    margin-bottom: 10px;
+		}
+
+    </style>
+</head>
+<body>
+    <div class="recipe-details-container">
+        <h1 id="recipeName">Recipe Name</h1>
+        <img id="recipeImage" src="" alt="Recipe Image">
+        <div id="recipeMeta">
+            <p><strong>Country:</strong> <span id="recipeCountry"></span></p>
+            <p><strong>Food Group:</strong> <span id="recipeFoodGroup"></span></p>
+            <p><strong>Created by:</strong> <span id="recipeCreatedBy"></span></p>
+        </div>
+        <h2>Ingredients</h2>
+        <ul id="recipeIngredients"></ul>
+        <h2>Instructions</h2>
+        <ol id="recipeInstructions"></ol>
+        <p id="recipeNote"></p>
+    </div>
+    <script src="scripts/viewRecipe.js" type="module"></script>
+
+</body>
+</html>

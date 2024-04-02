@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<title></title>
+</head>
+<style type="text/css">
+	body, html {
+	  height: 100%;
+	  margin: 0;
+	  padding: 0;
+	  font-family: 'Poppins', sans-serif;
+	  box-sizing: border-box;
+	}
+	#userInfo {
+	  font-size: 28px;
+	  font-weight: 200;
+	  color: #A85D3D;
+	  text-align: center;
+	}
+
+	.landtitle {
+	  font-size: 48px;
+	  font-weight: 400;
+	  color: #A85D3D;
+	  text-align: center;
+	}
+
+	.carousel {
+	  position: relative;
+	  width: 90%;
+	  height: 60%;
+	  overflow: hidden;
+	  border-radius: 20px;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+
+	.carousel-slides {
+	  display: flex;
+	  transition: transform 0.5s ease;
+	}
+
+	.slide {
+	  min-width: 100%;
+	  height: 50vw;
+	  background-size: cover;
+	  background-position: center;
+	  display: flex;
+	  align-items: center;
+	  justify-content: flex-start;
+	  opacity: 0;
+	  transition: opacity 0.5s ease;
+	  position: absolute; /* Ensure slides are stacked */
+	  top: 0;
+	  left: 0;
+	}
+
+	.carousel-slides .slide:first-child {
+	  opacity: 1;
+	  z-index: 1; /* Ensure the first slide is visible */
+	}
+
+	.dark-tint {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background: rgba(0, 0, 0, 0.3); /* Black tint with opacity */
+	  color: white;
+	  padding: 20px;
+	}
+
+	.slide h2 {
+	  font-size: 28px;
+	}
+
+	.slide p {
+	  font-size: 15px;
+	  font-weight: 200;
+	}
+
+
+	.carousel-indicators {
+		margin-top: 10px;
+	  position: absolute;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  display: flex;
+	}
+
+	.dot {
+	  padding: 5px;
+	  margin: 0 5px;
+	  cursor: pointer;
+	  border-radius: 50%;
+	  background: #EEB7A0;
+	}
+
+	.dot.active {
+	  background: #95634D;
+	}
+	.heading{
+		margin-top: 50px;
+		text-align: center;
+		font-size: 30px;
+		color: #A85D3D;
+	}
+	.container1{
+		display: flex;
+		position: relative;
+	  width: 80%;
+	  overflow: hidden;
+	  margin-top: 20px;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+	.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+  }
+  .texttitle{
+  	margin-bottom: 10px;
+    font-size: 24px;
+    color: #A85D3D;
+  }
+  .text{
+    font-size: 14px;
+    color: #000000;
+  }
+  .right-column {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .image1 {
+    width: 80%; /* Adjust as needed */
+    height: 80%;
+    margin-top: 1rem;
+    border-radius: 20px;
+  }
+</style>
+<body>
+	<div id="userInfo"></div>
+	<div class="landtitle">AFRICAN CUISINE</div>
+	<div class="carousel">
+  <div class="carousel-slides">
+  <!-- Slide 1 -->
+  <div class="slide" style="background-image: url('images/image.webp');">
+    <div class="dark-tint">
+      <h2>Discover Africa's Rich Culinary Heritage</h2>
+      <p>Embark on a flavorful journey across the continent.<br>Explore recipes passed down through generations, from<br>the savory stews of West Africa to the aromatic spices of<br>the North. Dive into a world of unique tastes and<br>traditions right from your kitchen.</p>
+    </div>
+  </div>
+  <!-- Slide 2 -->
+  <div class="slide" style="background-image: url('images/carousel2.webp');">
+    <div class="dark-tint">
+      <h2>Share your own African Recipes</h2>
+      <p>Join our vibrant community of home chefs and culinary<br>aficionados. Share your family's traditional dishes,<br>contribute to the preservation of African heritage, and let<br>the world savor the unique flavors of your home cuisine.</p>
+    </div>
+  </div>
+  <!-- Slide 3 -->
+  <div class="slide" style="background-image: url('images/carousel3.jpg');">
+    <div class="dark-tint">
+      <h2>Learn the Stories Behind the Dishes</h2>
+      <p>Every recipe tells a story. Uncover the history, the cultural<br>significance, and the personal anecdotes that make<br>African dishes much more than just food. Celebrate the<br>diversity and unity of African culture with every bite.</p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="carousel-indicators">
+    <span class="dot" data-target="slide1"></span>
+    <span class="dot" data-target="slide2"></span>
+    <span class="dot" data-target="slide3"></span>
+  </div>
+<div class = "heading">A Tapestry of Taste</div>
+<div class="container1">
+  <div class="left-column">
+  	<div class="texttitle">Our Journey</div>
+    <div class="text">African Heritage Cuisine Hub" is not just about recipes; it's a culinary voyage across the vast tapestry of African cultures. Our platform is a homage to the continent's rich and diverse gastronomic narratives, each dish telling its own unique story.</div>
+  </div>
+  <div class="right-column">
+    <img src="images/image2.webp" alt="Logo" class="image1">
+  </div>
+</div>
+<div class="container1">
+  <div class="left-column">
+    <img src="images/image4.webp" alt="Logo" class="image1">
+  </div>
+  <div class="right-column">
+  	<div class="texttitle">The Cradle of Flavors</div>
+    <div class="text">Africa, often referred to as the 'Cradle of Civilization', is just as much the cradle of flavors that have shaped the way the world eats today. From the coffee rituals of Ethiopia to the robust tagines of Morocco, African cuisine offers a spectrum of flavors as diverse as its landscapes.</div>
+  </div>
+</div>
+<div class="container1">
+  <div class="left-column">
+  	<div class="texttitle">Community and Unity</div>
+    <div class="text">Food in Africa is more than sustenance; it's a reason to gather, to celebrate, and to unify. We celebrate the communal pots from which families share their meals, the vibrant marketplaces, and the traditional feasts that mark the rhythms of life.</div>
+  </div>
+  <div class="right-column">
+    <img src="images/image3.webp" alt="Logo" class="image1">
+  </div>
+</div>
+<script type="module" src="scripts/firebase-config.js"></script>
+ <script type="module" src="scripts/display.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+
+  function goToSlide(slideIndex) {
+    slides.forEach((slide, index) => {
+      if (index === slideIndex) {
+        slide.style.opacity = 1;
+        slide.style.zIndex = 1; // Bring to front
+      } else {
+        slide.style.opacity = 0;
+        slide.style.zIndex = 0; // Send to back
+      }
+    });
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === slideIndex);
+    });
+    currentSlide = slideIndex;
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
+
+  function nextSlide() {
+    let nextSlideIndex = (currentSlide + 1) % slides.length;
+    goToSlide(nextSlideIndex);
+  }
+
+  goToSlide(0); // Set first slide as active on page load
+  setInterval(nextSlide, 3000); // Auto-scroll every 3 seconds
+});
+</script>
+
+</body>
+</html>

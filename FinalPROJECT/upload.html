@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Upload Recipe - African Cuisine</title>
+    <script type="module" src="scripts/auth.js"></script>
+    <script type="module" src="scripts/upload.js"></script>
+</head>
+<style type="text/css">
+	body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #fff;
+        color: #333;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #5D4037;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    input[type="file"] {
+	    display: none;
+	}
+
+	.upload-section {
+	    border: 2px dashed #BDBDBD;
+	    border-radius: 5px;
+	    padding: 20px;
+	    margin-bottom: 20px;
+	    cursor: pointer;
+	    text-align: center;
+	    background-color: #F5F5F5;
+	}
+
+	.upload-section:hover {
+	    background-color: #E8E8E8;
+	}
+
+	.upload-label {
+	    font-size: 16px;
+	    color: #5D4037;
+	}
+
+	.image-preview {
+	    width: 100%;
+	    margin-top: 15px;
+	    border: 1px solid #BDBDBD;
+	    border-radius: 5px;
+	    box-sizing: border-box;
+	    display: none; /* Hide until an image is chosen */
+	    justify-content: center;
+	    align-items: center;
+	    overflow: hidden;
+	    position: relative;
+	    padding: 0; /* Remove padding if it's set by default */
+	}
+
+	.image-preview img {
+	    width: 100%;
+	    height: auto;
+	    display: block; /* Remove this line if you want to keep the original image size */
+	}
+
+	.remove-image {
+	    position: absolute;
+	    top: 10px;
+	    right: 10px;
+	    background-color: #D67F60;
+	    border: none;
+	    border-radius: 10px;
+	    cursor: pointer;
+	    padding: 5px;
+	    font-size: 14px;
+	    display: none; /* Hide until an image is chosen */
+	}
+
+    .container1{
+	    display: flex;
+	    height: 100vh;
+	  }
+    .left-column {
+    	flex: 1;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: left;
+	    align-items: left;
+	    padding: 20px;
+	    color: #fff;
+	    text-align: left;
+	    }
+    .right-column {
+	    flex: 1;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: left;
+	    align-items: left;
+	    padding: 20px;
+	    color: #fff;
+	    text-align: left;
+	  }
+
+	.select{
+    	width: 100%;
+	    padding: 10px;
+	    background-color:#EFDCDA;
+	    margin-bottom: 1rem;
+	    border: 0px solid;
+	    border-radius: 10px;
+	    font-size: 14px;
+	    color: #A56464;
+	}
+    .text-input{
+    	width: 100%;
+	    padding: 10px;
+	    background-color:#EFDCDA;
+	    margin-bottom: 1rem;
+	    border: 0px solid;
+	    border-radius: 10px;
+	    font-size: 14px;
+    }
+
+    .text-input::placeholder {
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 12px;
+	    color: #999;
+	    opacity: 1;
+	  }
+
+	.ingredients{
+    	width: 100%;
+    	height: 80%;
+	    padding: 10px;
+	    background-color:#EFDCDA;
+	    margin-bottom: 1rem;
+	    border: 0px solid;
+	    border-radius: 10px;
+	    font-size: 14px;
+    }
+
+    .ingredients::placeholder {
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 12px;
+	    color: #999;
+	    opacity: 1;
+	}
+
+    button {
+        width: 50%;
+	    padding: 10px;
+	    font-size: 15px;
+	    text-transform: uppercase;
+	    border: none;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    background-color: #D67F60;
+	    color: #fff;
+	    text-decoration: none;
+	    display: block;
+	    margin: 0 auto 0.5rem auto;
+    }
+
+    button:hover {
+        background-color: #603B2D;
+    }
+    .note {
+        width: 100%;
+	    padding: 10px;
+	    background-color:#EFDCDA;
+	    margin-bottom: 1rem;
+	    border: 0px solid;
+	    border-radius: 10px;
+	    font-size: 14px;
+    }
+    .note::placeholder {
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 12px;
+	    color: #999;
+	    opacity: 1;
+	}
+</style>
+<body>
+	<div class="container">
+        <h1>Upload Recipe</h1>
+        <form id="recipeForm">
+            <div class="upload-section" onclick="document.getElementById('imageInput').click()">
+			    <label for="imageInput" class="upload-label">Click to upload image</label>
+			    <input type="file" id="imageInput" name="image" accept="image/*" required>
+			</div>
+			<div class="image-preview" id="imagePreview">
+			    <img src="" alt="Image Preview" id="imagePreviewImg">
+			    <button class="remove-image" onclick="removeImage()">×</button>
+			</div>
+            <div class="container1">
+                <div class="left-column">
+                <select name="country" class="select" required>
+                	<option value="">Select Country</option>
+			        <option value="algeria">Algeria</option>
+					<option value="angola">Angola</option>
+					<option value="benin">Benin</option>
+					<option value="botswana">Botswana</option>
+					<option value="burkina-faso">Burkina Faso</option>
+					<option value="burundi">Burundi</option>
+					<option value="cabo-verde">Cabo Verde</option>
+					<option value="cameroon">Cameroon</option>
+					<option value="central-african-republic">Central African Republic</option>
+					<option value="chad">Chad</option>
+					<option value="comoros">Comoros</option>
+					<option value="congo">Congo</option>
+					<option value="cote-d&#39;ivoire">Côte d'Ivoire</option>
+					<option value="democratic-republic-of-the-congo">Democratic Republic of the Congo</option>
+					<option value="djibouti">Djibouti</option>
+					<option value="egypt">Egypt</option>
+					<option value="equatorial-guinea">Equatorial Guinea</option>
+					<option value="eritrea">Eritrea</option>
+					<option value="eswatini">Eswatini</option>
+					<option value="ethiopia">Ethiopia</option>
+					<option value="gabon">Gabon</option>
+					<option value="gambia">Gambia</option>
+					<option value="ghana">Ghana</option>
+					<option value="guinea">Guinea</option>
+					<option value="guinea-bissau">Guinea-Bissau</option>
+					<option value="kenya">Kenya</option>
+					<option value="lesotho">Lesotho</option>
+					<option value="liberia">Liberia</option>
+					<option value="libya">Libya</option>
+					<option value="madagascar">Madagascar</option>
+					<option value="malawi">Malawi</option>
+					<option value="mali">Mali</option>
+					<option value="mauritania">Mauritania</option>
+					<option value="mauritius">Mauritius</option>
+					<option value="morocco">Morocco</option>
+					<option value="mozambique">Mozambique</option>
+					<option value="namibia">Namibia</option>
+					<option value="niger">Niger</option>
+					<option value="nigeria">Nigeria</option>
+					<option value="rwanda">Rwanda</option>
+					<option value="sao-tome-and-prinscipe">São Tomé and Príncipe</option>
+					<option value="senegal">Senegal</option>
+					<option value="seychelles">Seychelles</option>
+					<option value="sierra-leone">Sierra Leone</option>
+					<option value="somalia">Somalia</option>
+					<option value="south-africa">South Africa</option>
+					<option value="south-sudan">South Sudan</option>
+					<option value="sudan">Sudan</option>
+					<option value="swaziland">Swaziland (now Eswatini)</option>
+					<option value="tanzania">Tanzania</option>
+					<option value="togo">Togo</option>
+					<option value="tunisia">Tunisia</option>
+					<option value="uganda">Uganda</option>
+					<option value="zambia">Zambia</option>
+					<option value="zimbabwe">Zimbabwe</option>
+			    </select>
+                    <input type="text" name="recipeName" class="text-input" placeholder="Recipe Name" required>
+                    <textarea name="ingredients" class="ingredients" placeholder="List ingredients, separated by line." required></textarea>
+                </div>
+
+                <div class="right-column">
+                    <select name="foodgroup" class="select" required>
+				        <option value="">Select Food Group</option>
+				        <!-- Populate with African countries -->
+				        <option value="salads">Salad</option>
+				        <option value="breakfast">Breakfast</option>
+				        <option value="lunch">Lunch</option>
+				        <option value="dinner">Dinner</option>
+				        <option value="Brunch">Brunch</option>
+				        <option value="snack">Snack</option>
+				        <option value="soup">Soup</option>
+				        <option value="beverages">Beverages</option>
+				    </select>
+                    <textarea name="instructions" class="ingredients" placeholder="List instructions step by step, each on a new line." required></textarea>
+                    <textarea name="note" placeholder="Note" class="note" required></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Upload Recipe</button>
+        </form>
+    </div>
+    <script>
+    // JavaScript for image preview
+    document.addEventListener('DOMContentLoaded', () => {
+        const imageInput = document.querySelector('input[type="file"][name="image"]');
+        const imagePreview = document.getElementById('imagePreview');
+        const imagePreviewImg = document.getElementById('imagePreviewImg');
+        const removeImageButton = document.querySelector('.remove-image');
+
+        imageInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.addEventListener('load', function() {
+                    imagePreviewImg.setAttribute('src', this.result);
+                    imagePreview.style.display = 'flex'; // Display the preview container
+                    removeImageButton.style.display = 'block'; // Show the remove image button
+                });
+                reader.readAsDataURL(file);
+            } else {
+                removeImage(); // Call removeImage function if no file is selected
+            }
+        });
+    });
+
+    // Function to remove the image
+    function removeImage() {
+        document.getElementById('imageInput').value = ''; // Clear the input
+        document.getElementById('imagePreview').style.display = 'none'; // Hide the preview
+        document.getElementById('imagePreviewImg').src = ''; // Clear the image src
+        document.querySelector('.remove-image').style.display = 'none'; // Hide the remove image button
+    }
+</script>
+</body>
+</html>
